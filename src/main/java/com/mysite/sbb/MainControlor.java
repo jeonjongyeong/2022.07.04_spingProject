@@ -9,8 +9,7 @@ public class MainControlor {
 
   @RequestMapping("/sbb")
   @ResponseBody
-  public String index() {
-    return "ㅎㅇㅎㅇ";
+  public String article() {
+    return "3sbsㅀ";
   }
-
 }

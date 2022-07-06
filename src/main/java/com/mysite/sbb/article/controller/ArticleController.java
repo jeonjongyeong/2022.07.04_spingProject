@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -14,6 +15,12 @@ import java.util.List;
 public class ArticleController {
   @Autowired
   private ArticleRepository articleRepository;
+  private long id;
+  private LocalDateTime regDate;
+  private LocalDateTime updateDate;
+  private String title;
+  private String body;
+  private long userId;
 
   @RequestMapping("/test")
   @ResponseBody
@@ -25,6 +32,12 @@ public class ArticleController {
   @ResponseBody
   public List<Article> showList() {
     return articleRepository.findAll();
+  }
+
+  @RequestMapping("/detail")
+  @ResponseBody
+  public Article showDetail() {
+    return articleRepository.findById(1L).get();
   }
 
 }
